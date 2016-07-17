@@ -11,7 +11,6 @@ function mergeSort(array) {
     if (size <= 1) return array;
 
     var mid = parseInt((size) / 2);
-    // Get the first half of the array
     var left = mergeSort(array.slice(0, mid));
     var right = mergeSort(array.slice(mid));
     return merge(left, right);
