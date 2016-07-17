@@ -24,24 +24,27 @@ function mergeSort(array) {
  * @return {Array} The merged array.
  */
 function merge(left, right) {
-    var result = [];
+    var result = [],
+        i = 0,
+        j = 0;
     // using this for loop like a while, keeps loop vars in one place
-    for (var k = 0; left.length && right.length; k++) {
-        if (left[0] < right[0]) {
-            result.push(left.shift());
+    while (i <left.length && j <right.length) {
+        if (left[i] < right[j]) {
+            result.push(left[i++]);
         } else {
-            result.push(right.shift());
+            result.push(right[j++]);
         }
     }
 
-    // while loops can be replace with arrayC.concat(arrayA, arrayC)
-    // but the loops are more memory efficient
-    while (left.length) {
-        result.push(left.shift());
+    // while loops can be replaced with arrayC.concat(arrayA, arrayC)
+    // but the loops are more memory efficient and time efficient. With array.concat
+    // a copy of the orini
+    while (i < left.length) {
+        result.push(left[i++]);
     }
 
-    while (right.length) {
-        result.push(right.shift());
+    while (j < right.length) {
+        result.push(right[j++]);
     }
 
     return result;
